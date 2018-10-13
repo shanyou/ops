@@ -12,7 +12,7 @@ rpm -ivh jdk-8u171-linux-x64.rpm
 
 
 # install Gradle
-wget https://downloads.gradle.org/distributions/gradle-4.6-bin.zip
+wget -c -t 0 https://downloads.gradle.org/distributions/gradle-4.6-bin.zip
 
 unzip gradle-4.6-bin.zip
 echo "PATH=\$PATH:${PWD}/gradle-4.6-bin/bin" | tee -a ~/.bash_profile
