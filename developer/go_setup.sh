@@ -14,7 +14,7 @@ _reg="\(\s\+\)go\\bin\s*$"
 _reg_match="$(grep -e "${_reg}" ${BASH_RC}|| echo '')"
 if [ "${_reg_match}" == "" ]; then
     echo -e "# golang env setup" >> ${BASH_RC}
-    echo -e "export PATH=\$PATH:$GOROOT_DIR/go/bin" >> ${BASH_RC}
+    echo -e "export PATH=\$PATH:$GOPATH_DIR/bin:$GOROOT_DIR/go/bin" >> ${BASH_RC}
     echo -e "export GOPATH=$GOPATH_DIR" >> ${BASH_RC}
 fi
 popd 1>/dev/null 2>&1
