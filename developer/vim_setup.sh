@@ -6,7 +6,7 @@ WORK_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 yum -y remove vim-*
 # tips: when uninstall vim may remove sudo. try to install back using `yum install -y sudo` by root
 # install requirement
-yum -y groupinstall 'Development tools'
+sudo yum -y groupinstall 'Development tools'
 sudo yum install -y ncurses ncurses-devel lua lua-devel
 
 # compile
@@ -14,7 +14,7 @@ sudo yum install -y ncurses ncurses-devel lua lua-devel
 wget ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2
 cd vim*
 ./configure --prefix=/usr --with-features=huge --enable-rubyinterp --enable-pythoninterp --enable-luainterp --with-lua-prefix=/usr
-make && make install
+sudo make && sudo make install
 
 exit 0
 # uninstall

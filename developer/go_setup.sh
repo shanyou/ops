@@ -2,7 +2,7 @@
 # bash script to help setup golang enviroment
 WORK_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 GOPATH_DIR=$HOME/gopath
-GOROOT_DIR=$HOME/go
+GOROOT_DIR=$HOME
 mkdir -p $GOPATH_DIR $GOROOT_DIR
 pushd $GOROOT_DIR 1>/dev/null 2>&1
 wget https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz
