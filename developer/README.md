@@ -8,3 +8,8 @@
 
 # Golang开发环境
 `go_setup.sh`主要安装`golang`编译程序
+
+# go vim ide
+有了go环境需要一个开发IDE支持go的开发[vim-go-ide](https://github.com/farazdagi/vim-go-ide)。
+
+具体安装脚本请参考`go_ide_setup.sh`
