@@ -33,9 +33,9 @@ fi
 
 # change vimgo rc
 _reg="t_Co=256"
-_reg_match="$(grep -e "${_reg}" ${BASH_RC}|| echo '')"
+_reg_match="$(grep -e "${_reg}" ~/.vimrc.go|| echo '')"
 if [ "${_reg_match}" == "" ]; then
-    echo -e "set t_Co=256" >> ${BASH_RC}
+    echo -e "set t_Co=256" >> ~/.vimrc.go
 fi
 
 source ~/.bashrc
