@@ -5,12 +5,28 @@ set -e
 RUBY_VERSION=2.4.4
 # func
 throw() {  eval 'cat <<< "Exception: $e ($*)" 1>&2; exit 1;'; }
+get_dist() {
+  local lsb_dist=""
+  if [ -r /etc/os-release ]; then
+          lsb_dist="$(. /etc/os-release && echo "$ID")"
+  fi
+  echo "$lsb_dist"
+}
 # init
 command -v git > /dev/null 2>&1 || throw "need git installed !!!"
 cd ~
 
 # add missing dependence
-sudo yum install -y openssl-devel readline-devel zlib-devel
+lsb_dist=$( get_dist )
+lsb_dist="$(echo "$lsb_dist" | tr '[:upper:]' '[:lower:]')"
+case "$lsb_dist" in
+  ubuntu)
+  sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
+  ;;
+  centos)
+  sudo yum install -y openssl-devel readline-devel zlib-devel
+  ;;
+esac
 
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 # 用来编译安装 ruby
